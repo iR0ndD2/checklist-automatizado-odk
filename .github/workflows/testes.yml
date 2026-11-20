@@ -1,0 +1,35 @@
+# Roda os testes e valida os formulários a cada envio para o GitHub.
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-java@v4   # o ODK Validate roda em Java
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Bibliotecas do WeasyPrint
+        run: sudo apt-get update && sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
+
+      - name: Dependências
+        run: pip install -r requirements-dev.txt
+
+      - name: Validar formulários
+        run: python formularios/gerar_formularios.py --validar
+
+      - name: Testes
+        working-directory: integrador
+        run: pytest -v

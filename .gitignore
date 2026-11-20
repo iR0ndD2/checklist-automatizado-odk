@@ -1,0 +1,19 @@
+# Segredos: nunca versionar
+.env
+
+# Saídas geradas
+saida/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*.xlsx

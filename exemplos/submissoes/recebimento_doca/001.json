@@ -1,0 +1,73 @@
+{
+  "__id": "uuid:a3d94b10-7c2e-4f88-b6a1-90e5c3d2f702",
+  "__system": {
+    "submissionDate": "2026-11-19T11:05:44.201Z",
+    "updatedAt": null,
+    "submitterId": "5",
+    "submitterName": "conferente.turno1",
+    "attachmentsPresent": 0,
+    "attachmentsExpected": 0,
+    "status": null,
+    "reviewState": null,
+    "deviceId": "collect:Xa82kP0",
+    "edits": 0,
+    "formVersion": "2026112001"
+  },
+  "meta": {
+    "instanceID": "uuid:a3d94b10-7c2e-4f88-b6a1-90e5c3d2f702",
+    "instanceName": "Doca 03 - QWE4R56 - 19/11/2026"
+  },
+  "inicio": "2026-11-19T07:48:10.000-03:00",
+  "fim": "2026-11-19T08:04:31.000-03:00",
+  "aparelho": "collect:Pm19dQ2",
+  "chegada": {
+    "doca": "doca_03",
+    "transportadora": "Transportadora Exemplo Ltda",
+    "placa": "QWE4R56",
+    "motorista": "Marcos Silva",
+    "tipo_carga": "seca"
+  },
+  "notas": [
+    {
+      "nota_numero": "104522",
+      "nota_volumes": 120,
+      "__id": "n1"
+    },
+    {
+      "nota_numero": "104523",
+      "nota_volumes": 80,
+      "__id": "n2"
+    }
+  ],
+  "lacre": {
+    "lacre_integro": "sim",
+    "lacre_numero": "778201",
+    "lacre_foto": "r1_lacre.jpg"
+  },
+  "veiculo": {
+    "bau_limpo": "conforme",
+    "bau_seco": "conforme",
+    "assoalho": "conforme",
+    "pragas": "conforme"
+  },
+  "carga": {
+    "amarracao": "conforme",
+    "paletes": "conforme",
+    "embalagens": "nao_conforme",
+    "embalagens_foto": "r1_embalagens.jpg",
+    "embalagens_obs": "6 caixas amassadas no palete 4, sem exposição do produto.",
+    "etiquetas": "conforme"
+  },
+  "conferencia": {
+    "volumes_previstos": "200",
+    "volumes_recebidos": 198,
+    "divergencia": "-2",
+    "divergencia_obs": "Faltaram 2 volumes da NF 104523. Registrado no canhoto."
+  },
+  "decisao": {
+    "qtd_nao_conformes": "1",
+    "resultado": "aprovado_ressalva",
+    "conferente": "Ana Ribeiro",
+    "assinatura_motorista": "r1_assinatura.png"
+  }
+}

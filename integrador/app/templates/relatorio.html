@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>{{ titulo }} - {{ identificacao }}</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+    @bottom-left { content: "Gerado automaticamente em {{ gerado_em }}"; font-family: "DejaVu Sans", Arial, sans-serif; font-size: 8pt; color: #6b7280; }
+    @bottom-right { content: "Página " counter(page) " de " counter(pages); font-family: "DejaVu Sans", Arial, sans-serif; font-size: 8pt; color: #6b7280; }
+  }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 9.5pt; color: #1f2937; }
+  header { border-bottom: 3px solid #1e3a5f; padding-bottom: 8px; margin-bottom: 12px; }
+  h1 { font-size: 16pt; margin: 0; color: #1e3a5f; }
+  .subtitulo { color: #4b5563; margin-top: 2px; }
+  .resumo { display: flex; gap: 8px; margin: 10px 0 14px; }
+  .cartao { flex: 1; border: 1px solid #d1d5db; border-radius: 4px; padding: 6px 8px; }
+  .cartao .rotulo { font-size: 7.5pt; text-transform: uppercase; color: #6b7280; letter-spacing: .03em; }
+  .cartao .valor { font-size: 11pt; font-weight: bold; margin-top: 2px; }
+  .faixa-alerta { background: #fef2f2; border-left: 4px solid #b91c1c; color: #7f1d1d;
+                  padding: 6px 10px; margin-bottom: 12px; font-weight: bold; }
+  .faixa-ok { background: #f0fdf4; border-left: 4px solid #15803d; color: #14532d;
+              padding: 6px 10px; margin-bottom: 12px; font-weight: bold; }
+  h2 { font-size: 10.5pt; color: #fff; background: #1e3a5f; padding: 4px 8px; margin: 14px 0 0;
+       break-after: avoid; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { border-bottom: 1px solid #e5e7eb; padding: 4px 8px; vertical-align: top; text-align: left; }
+  td.rotulo { width: 42%; color: #4b5563; }
+  th { background: #f3f4f6; font-size: 8.5pt; }
+  .nc { color: #b91c1c; font-weight: bold; }
+  .fotos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  figure { margin: 0; width: 31%; break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid #d1d5db; }
+  figure.assinatura { width: 40%; }
+  figure.assinatura img { border: none; border-bottom: 1px solid #1f2937; }
+  figcaption { font-size: 7.5pt; color: #4b5563; margin-top: 2px; }
+  .rodape-id { margin-top: 16px; font-size: 7.5pt; color: #9ca3af; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{ titulo }}</h1>
+  <div class="subtitulo">{{ identificacao }}</div>
+</header>
+
+<div class="resumo">
+  <div class="cartao"><div class="rotulo">Enviado em</div><div class="valor">{{ enviado_em }}</div></div>
+  <div class="cartao"><div class="rotulo">Usuário</div><div class="valor">{{ enviado_por }}</div></div>
+  <div class="cartao"><div class="rotulo">Resultado</div><div class="valor">{{ resultado }}</div></div>
+  <div class="cartao"><div class="rotulo">Não conformidades</div>
+    <div class="valor {% if qtd_nao_conformes %}nc{% endif %}">{{ qtd_nao_conformes }}</div></div>
+</div>
+
+{% if alerta %}
+<div class="faixa-alerta">Atenção: esta inspeção exige providência.</div>
+{% else %}
+<div class="faixa-ok">Inspeção sem pendências.</div>
+{% endif %}
+
+{% for secao in secoes %}
+  <h2>{{ secao.rotulo }}</h2>
+  {% if secao.tabela is not none %}
+    <table>
+      <tr>{% for coluna in secao.colunas %}<th>{{ coluna }}</th>{% endfor %}</tr>
+      {% for linha in secao.tabela %}
+      <tr>{% for celula in linha %}<td>{{ celula }}</td>{% endfor %}</tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    {% set textos = secao.linhas | rejectattr("imagem") | list %}
+    {% set imagens = secao.linhas | selectattr("imagem") | list %}
+    {% if textos %}
+    <table>
+      {% for linha in textos %}
+      <tr>
+        <td class="rotulo">{{ linha.rotulo }}</td>
+        <td class="{% if linha.nao_conforme %}nc{% endif %}">{{ linha.valor }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    {% if imagens %}
+    <div class="fotos">
+      {% for linha in imagens %}
+      <figure class="{% if linha.assinatura %}assinatura{% endif %}">
+        <img src="{{ linha.imagem }}" alt="{{ linha.rotulo }}">
+        <figcaption>{{ linha.rotulo }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="rodape-id">ID da resposta: {{ instance_id }}</div>
+</body>
+</html>

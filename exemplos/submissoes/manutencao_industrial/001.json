@@ -1,0 +1,59 @@
+{
+  "__id": "uuid:c71e0f3a-58b4-4d2c-a9f6-1b3e7d4a6c03",
+  "__system": {
+    "submissionDate": "2026-11-19T19:27:03.880Z",
+    "updatedAt": null,
+    "submitterId": "5",
+    "submitterName": "tecnico.manutencao",
+    "attachmentsPresent": 0,
+    "attachmentsExpected": 0,
+    "status": null,
+    "reviewState": null,
+    "deviceId": "collect:Xa82kP0",
+    "edits": 0,
+    "formVersion": "2026112001"
+  },
+  "meta": {
+    "instanceID": "uuid:c71e0f3a-58b4-4d2c-a9f6-1b3e7d4a6c03",
+    "instanceName": "PRS-014 - Preventiva - 19/11/2026"
+  },
+  "inicio": "2026-11-19T15:02:00.000-03:00",
+  "fim": "2026-11-19T16:20:12.000-03:00",
+  "aparelho": "collect:Tk55wE8",
+  "equipamento": {
+    "tag": "PRS-014",
+    "setor": "estamparia",
+    "tipo_manutencao": "preventiva",
+    "ordem_servico": "OS-2026-1187",
+    "foto_antes": "m1_antes.jpg"
+  },
+  "seguranca": {
+    "loto": "sim",
+    "epi": "oculos luvas protetor_auricular botina"
+  },
+  "itens": {
+    "protecoes": "conforme",
+    "emergencia": "conforme",
+    "lubrificacao": "conforme",
+    "ruido": "conforme",
+    "vibracao": "conforme",
+    "vazamentos": "nao_conforme",
+    "vazamentos_foto": "m1_vazamentos.jpg",
+    "vazamentos_obs": "Gotejamento de óleo hidráulico na conexão do cilindro principal.",
+    "eletrica": "conforme",
+    "limpeza": "conforme"
+  },
+  "medicoes": {
+    "temperatura_mancal": 67.5,
+    "horimetro": 18342.0
+  },
+  "encerramento": {
+    "qtd_nao_conformes": "1",
+    "resultado": "liberado_restricao",
+    "restricao": "Operar até a troca da conexão, prevista para 22/11. Inspecionar o nível do óleo a cada turno.",
+    "pecas": "Conexão hidráulica 1/2\" (solicitada ao almoxarifado)",
+    "foto_depois": "m1_depois.jpg",
+    "tecnico": "Rafael Moreira",
+    "assinatura_tecnico": "m1_assinatura.png"
+  }
+}

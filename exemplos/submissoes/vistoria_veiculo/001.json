@@ -1,0 +1,75 @@
+{
+  "__id": "uuid:6f1c2a7e-3b9d-4c51-9e0a-2d7f8b1c4e01",
+  "__system": {
+    "submissionDate": "2026-11-18T13:42:10.512Z",
+    "updatedAt": null,
+    "submitterId": "5",
+    "submitterName": "coletor.patio",
+    "attachmentsPresent": 0,
+    "attachmentsExpected": 0,
+    "status": null,
+    "reviewState": null,
+    "deviceId": "collect:Xa82kP0",
+    "edits": 0,
+    "formVersion": "2026112001"
+  },
+  "meta": {
+    "instanceID": "uuid:6f1c2a7e-3b9d-4c51-9e0a-2d7f8b1c4e01",
+    "instanceName": "BRA2E19 - Devolução - 18/11/2026"
+  },
+  "inicio": "2026-11-18T10:31:02.000-03:00",
+  "fim": "2026-11-18T10:41:55.000-03:00",
+  "aparelho": "collect:Xa82kP0",
+  "identificacao": {
+    "tipo_vistoria": "devolucao",
+    "placa": "BRA2E19",
+    "modelo": "Hatch 1.0 flex",
+    "km": 48215,
+    "combustivel": "meio",
+    "condutor": "Carlos Andrade",
+    "contrato": "LOC-2026-00418"
+  },
+  "fotos": {
+    "foto_frente": "v1_frente.jpg",
+    "foto_traseira": "v1_traseira.jpg",
+    "foto_lateral_esq": "v1_lat_esq.jpg",
+    "foto_lateral_dir": "v1_lat_dir.jpg",
+    "foto_painel": "v1_painel.jpg"
+  },
+  "externo": {
+    "lataria": "nao_conforme",
+    "lataria_foto": "v1_lataria.jpg",
+    "lataria_obs": "Risco de 15 cm na porta traseira direita.",
+    "vidros": "conforme",
+    "farois": "conforme",
+    "pneus": "nao_conforme",
+    "pneus_foto": "v1_pneus.jpg",
+    "pneus_obs": "Pneu dianteiro esquerdo abaixo do TWI.",
+    "retrovisores": "conforme"
+  },
+  "interno": {
+    "bancos": "conforme",
+    "painel_luzes": "conforme",
+    "ar_condicionado": "conforme",
+    "equipamentos": "conforme",
+    "documento": "conforme"
+  },
+  "encerramento": {
+    "qtd_nao_conformes": "2",
+    "resultado": "com_avarias",
+    "observacoes": "Cliente ciente das avarias no ato da devolução.",
+    "local": {
+      "type": "Point",
+      "coordinates": [
+        -48.6623,
+        -26.9078,
+        12.0
+      ],
+      "properties": {
+        "accuracy": 4.8
+      }
+    },
+    "vistoriador": "Juliana Prado",
+    "assinatura_condutor": "v1_assinatura.png"
+  }
+}

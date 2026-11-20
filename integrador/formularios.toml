@@ -1,0 +1,27 @@
+# Quais formulários o integrador acompanha e para quem vai cada relatório.
+#
+# xlsform       arquivo do formulário (os rótulos do PDF saem dele)
+# destinatarios recebem o PDF de toda inspeção
+# alerta        recebem um aviso extra quando há não conformidade ou quando o
+#               campo "resultado" tem um dos valores de resultados_alerta
+
+[[formulario]]
+form_id = "vistoria_veiculo"
+xlsform = "formularios/vistoria_veiculo.xlsx"
+destinatarios = ["frota@exemplo.com.br"]
+alerta = ["manutencao.frota@exemplo.com.br"]
+resultados_alerta = ["com_avarias"]
+
+[[formulario]]
+form_id = "recebimento_doca"
+xlsform = "formularios/recebimento_doca.xlsx"
+destinatarios = ["recebimento@exemplo.com.br"]
+alerta = ["qualidade@exemplo.com.br", "transportes@exemplo.com.br"]
+resultados_alerta = ["aprovado_ressalva", "recusado"]
+
+[[formulario]]
+form_id = "manutencao_industrial"
+xlsform = "formularios/manutencao_industrial.xlsx"
+destinatarios = ["manutencao@exemplo.com.br"]
+alerta = ["pcm@exemplo.com.br", "seguranca@exemplo.com.br"]
+resultados_alerta = ["liberado_restricao", "parado"]

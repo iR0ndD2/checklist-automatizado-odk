@@ -1,0 +1,48 @@
+# Sobe o integrador, o banco e uma caixa de e-mail de teste.
+#
+#   docker compose up --build
+#
+# Depois abra http://localhost:8025 para ver os e-mails com os PDFs.
+# O ODK Central roda à parte (ver docs/instalacao-odk-central.md).
+
+services:
+  banco:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: checklist
+      POSTGRES_USER: checklist
+      POSTGRES_PASSWORD: ${BANCO_SENHA:-troque-esta-senha}
+    volumes:
+      - dados-banco:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U checklist -d checklist"]
+      interval: 5s
+      retries: 10
+
+  # Servidor SMTP de teste: guarda os e-mails e mostra numa página web, sem enviar para ninguém
+  email:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:8025:8025"
+
+  integrador:
+    build:
+      context: .
+      dockerfile: integrador/Dockerfile
+    env_file: .env
+    environment:
+      BANCO_URL: postgresql://checklist:${BANCO_SENHA:-troque-esta-senha}@banco:5432/checklist
+      PASTA_SAIDA: /projeto/saida
+    volumes:
+      - ./saida:/projeto/saida
+    depends_on:
+      banco:
+        condition: service_healthy
+      email:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  dados-banco:

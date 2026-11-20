@@ -1,0 +1,4 @@
+# Para desenvolver e rodar os testes fora do Docker
+-r integrador/requirements.txt
+pyxform==4.5.*
+pytest==9.*
