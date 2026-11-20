@@ -1,10 +1,10 @@
-# Checklist operacional com ODK
+# Checklist automatizado com ODK
 
 **Checklists digitais no celular, com fotos e assinatura, que viram relatório em PDF e chegam por e-mail sem ninguém digitar nada.**
 
 Três cenários prontos para uso: **vistoria de veículos**, **inspeção de recebimento na doca** e **inspeção de manutenção industrial**.
 
-![Testes](https://github.com/iR0ndD2/checklist-operacional-odk/actions/workflows/testes.yml/badge.svg)
+![Testes](https://github.com/iR0ndD2/checklist-automatizado-odk/actions/workflows/testes.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![ODK](https://img.shields.io/badge/ODK-Central%20%2B%20Collect-orange)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791)
@@ -60,8 +60,8 @@ Não precisa de servidor ODK: o modo `demo` usa respostas de exemplo.
 **Requisito:** [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 ```bash
-git clone https://github.com/iR0ndD2/checklist-operacional-odk.git
-cd checklist-operacional-odk
+git clone https://github.com/iR0ndD2/checklist-automatizado-odk.git
+cd checklist-automatizado-odk
 cp .env.example .env          # no Windows (PowerShell): copy .env.example .env
 docker compose up --build
 ```
